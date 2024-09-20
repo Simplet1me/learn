@@ -1,21 +1,25 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
-int main(){
-    int s,v,cost,h,min;
-    printf("请输入路程和速度\n");
-    scanf("%d %d",&s,&v);
-    if (s%v==0){
-        cost = s/v+10;
-    }else{
-        cost = s/v+10+1;
-    }
-    if (cost > 480){
-        h = (1440-cost+480)/60;
-        min = (1440-cost+480)%60;
-    }else{
-        h = (480-cost)/60;
-        min = (480-cost)%60;
-    }
-    printf("%02d:%02d",h,min);
-    return 0;
+double s,v,m;
+int n,a,t,b;
+int main()
+{
+	cin>>s>>v;
+	n=8*60+24*60;//两天总共的分钟数
+	t=ceil(s/v)+10;//ceil()很重要，向上取整，否则按C++逻辑会向下取整导致行走时间少。
+	n=n-t;//得出剩下的时间。
+	if(n>=24*60) n-=24*60;//判断是否在前一天。
+	b=n%60;//得出出发分。
+	a=n/60;//得出出发时
+	if(a<10)//慢慢判断是否补0
+	{
+		if(b<10) cout<<"0"<<a<<":0"<<b;
+		else cout<<"0"<<a<<":"<<b;
+	}
+	else
+	{
+		if(b<10) cout<<a<<":0"<<b;
+		else cout<<a<<":"<<b;
+	}
+	return 0;
 }
