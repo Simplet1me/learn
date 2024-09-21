@@ -1,7 +1,7 @@
 #include<stdio.h>
 int main(){
     int s,v,cost,h,min;
-    printf("请输入路程和速度\n");
+    //printf("请输入路程和速度\n");
     scanf("%d %d",&s,&v);
     if (s%v==0){
         cost = s/v+10;

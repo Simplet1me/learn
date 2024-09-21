@@ -1,5 +1,7 @@
 #include <stdio.h>
 int main(){
-    printf("Hello\n");
+    char a;
+    scanf("%c",&a);
+    printf("%c",a-32);
     return 0;
 }
