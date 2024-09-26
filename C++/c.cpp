@@ -1,16 +1,27 @@
 #include<iostream>
 using namespace std;
-void swap(int * p1,int * p2){
-    int temp = *p1;
-    *p1 = *p2;
-    *p2 = temp;
 
-}
+class Student
+{
+public:
+    string name;
+    int age;
+    int score;
+    void create(){
+        name = "Simple Time";
+        age = 19;
+        score = 666;
+    }
+
+    void printfif(){
+        cout<<"name:"<<this->name<<endl
+            <<"age:"<<this->age<<endl
+            <<"score:"<<this->score;
+    }
+};
 
 int main(){
-    int a = 10;
-    int b = 20;
-    cout<<a<<" "<<b<<endl;
-    swap(&a,&b);
-    cout<<a<<" "<<b<<endl;
+    Student s1;
+    s1.create();
+    s1.printfif();
 }
