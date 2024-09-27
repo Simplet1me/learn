@@ -1,5 +1,10 @@
 #include <stdio.h>
 int main(){
-    printf("1+1=%d",1+1);
+    int a,b;
+    scanf("%d %d",&a,&b);
+    printf("%d + %d = %d\n",a,b,a+b);
+    printf("%d - %d = %d\n",a,b,a-b);
+    printf("%d * %d = %d\n",a,b,a*b);
+    printf("%d / %d = %d\n",a,b,a/b);
     return 0;
 }
