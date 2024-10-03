@@ -1,27 +1,47 @@
 #include <iostream>
+#include <math.h>
 using namespace std;
 
-void swap(int * p1,int len){
-    for (size_t j = 0; j < len-1; j++){
-        for (size_t i = 0; i < len-j-1; i++){
-            if (p1[i] > p1[i+1]){
-                int temp = p1[i];
-                p1[i] = p1[i+1];
-                p1[i+1] = temp;
-            }
-        }
+class Point
+{
+private:
+    int x,y;
+public:
+    void inputdata(){cin>>this->x>>this->y;}
+    void setdata(int a,int b){
+        this->x = a;
+        this->y = b;
     }
-}
+    int getx(){return x;}
+    int gety(){return y;}
+};
+
+class Circle
+{
+private:
+    Point center;
+    int radius;
+public:
+    void inputdata(int x,int y,int r){
+        this->center.setdata(x,y);
+        this->radius = r;
+    }
+
+    int isPointerInCircle(int px,int py){
+        int s = sqrt(pow(px - center.getx(),2) + pow(py - center.gety(),2));
+        if (s > radius){return 0;}
+        else if (s == radius){return 1;}
+        else if (s < radius){return 2;}
+        return 3;
+    }
+};
 
 int main(){
-    int a[]={2,4,0,5,7,1,3,8,9};
-    int len = sizeof(a)/sizeof(a[0]);
-    for (size_t i = 0; i < len; i++){
-        cout<<a[i]<<" ";
-    }
-    swap(a,len);
-    cout<<endl;
-    for (size_t i = 0; i < len; i++){
-        cout<<a[i]<<" ";
-    }  
+    Point p;
+    Circle c;
+    c.inputdata(5,0,5);
+    p.inputdata();
+    if (c.isPointerInCircle(p.getx(),p.gety()) == 0){cout<<"out";}
+    else if (c.isPointerInCircle(p.getx(),p.gety()) == 1){cout<<"on";}
+    else if (c.isPointerInCircle(p.getx(),p.gety()) == 2){cout<<"in";}
 }
