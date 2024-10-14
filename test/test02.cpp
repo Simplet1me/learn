@@ -3,7 +3,7 @@
 using namespace std;
 
 int balance(int up,int down,int left,int right,int center){
-    int a = ceil((up+down+left+right+center)/5.0);
+    int a = ceil((up+down+left+right+center)/5.0+0.5);
     return a;
 }
 
